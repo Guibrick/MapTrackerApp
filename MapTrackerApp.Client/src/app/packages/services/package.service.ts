@@ -11,7 +11,7 @@ export class PackageService {
 
   package: Package = new Package();
   packages: Package[] = [];
-  apiUrl: "https://localhost:7062/api/Packages";
+  apiUrl: string = "https://localhost:7062/api/Packages";
 
   getPackages() {
     return this.http.get(this.apiUrl).subscribe(p => {

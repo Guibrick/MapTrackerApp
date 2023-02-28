@@ -9,11 +9,15 @@ import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PackagesComponent } from './packages/packages.component';
+import { PackagesListComponent } from './packages/packages-list/packages-list.component';
+import { PackageComponent } from './packages/package/package.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PackagesComponent
+    PackagesComponent,
+    PackagesListComponent,
+    PackageComponent
   ],
   imports: [
     BrowserModule,
