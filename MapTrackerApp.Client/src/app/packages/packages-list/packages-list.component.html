@@ -13,6 +13,21 @@
       <th>City</th>
     </tr>
   </thead>
+  <tbody>
+    <tr *ngFor="let package of packageService.packages">
+      <td (click)="loadPackage(package)">{{package.DeliveryId }}</td>
+      <td (click)="loadPackage(package)">{{package.Product }}</td>
+      <td (click)="loadPackage(package)">{{package.ProductType }}</td>
+      <td (click)="loadPackage(package)">{{package.Size }}</td>
+      <td (click)="loadPackage(package)">{{package.LastName }}</td>
+      <td (click)="loadPackage(package)">{{package.FirstName }}</td>
+      <td (click)="loadPackage(package)">{{package.StreetName }}</td>
+      <td (click)="loadPackage(package)">{{package.StreetNumber }}</td>
+      <td (click)="loadPackage(package)">{{package.Zip}}</td>
+      <td (click)="loadPackage(package)">{{package.City }}</td>
+      <td (click)="deletePackage(package.DeliveryId)"><i class="fa fa-trash text-danger"></i> </td>
+    </tr>
+  </tbody>
 </table>
 
     
