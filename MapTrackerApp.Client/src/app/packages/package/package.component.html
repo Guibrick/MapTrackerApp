@@ -1,1 +1,71 @@
-<p>package works!</p>
+<form name="form" #form="ngForm" (submit)="submitPackageForm(form)" autocomplete="off">
+  <input type="hidden" name="DeliveryId" #DeliveryId="ngModel" [(ngModel)]="packageService.package.DeliveryId">
+  <div class="form-row mb-2">
+    <div class="col">
+      <label class="form-label">Product:</label>
+      <input name="Product" #Product="ngModel" required [(ngModel)]="packageService.package.Product"
+             placeholder="Product" class="form-control">
+      <div class="text-danger" *ngIf="Product.touched && Product.invalid">Required</div>
+    </div>
+    <div class="col">
+      <label class="form-label">Product Type:</label>
+      <input name="ProductType" #ProductType="ngModel" required [(ngModel)]="packageService.package.ProductType"
+             placeholder="Product Type" class="form-control">
+      <div class="text-danger" *ngIf="ProductType.touched && ProductType.invalid">Required</div>
+    </div>
+    <div class="col">
+      <label class="form-label">Size:</label>
+      <input name="Size" #Size="ngModel" required [(ngModel)]="packageService.package.Size"
+             placeholder="Size" class="form-control">
+      <div class="text-danger" *ngIf="Size.touched && Size.invalid">Required</div>
+    </div>
+    <div class="col">
+      <label class="form-label">Last Name:</label>
+      <input name="LastName" #LastName="ngModel" required [(ngModel)]="packageService.package.LastName"
+             placeholder="Last Name" class="form-control">
+      <div class="text-danger" *ngIf="LastName.touched && LastName.invalid">Required</div>
+    </div>
+    <div class="col">
+      <label class="form-label">First Name:</label>
+      <input name="FirstName" #FirstName="ngModel" required [(ngModel)]="packageService.package.FirstName"
+             placeholder="First Name" class="form-control">
+      <div class="text-danger" *ngIf="FirstName.touched && FirstName.invalid">Required</div>
+    </div>
+    <div class="col">
+      <label class="form-label">Street Name:</label>
+      <input name="StreetName" #StreetName="ngModel" required [(ngModel)]="packageService.package.StreetName"
+             placeholder="Street Name" class="form-control">
+      <div class="text-danger" *ngIf="StreetName.touched && StreetName.invalid">Required</div>
+    </div>
+    <div class="col">
+      <label class="form-label">Street Number:</label>
+      <input name="StreetNumber" #StreetNumber="ngModel" required [(ngModel)]="packageService.package.StreetNumber"
+             placeholder="Street Number" class="form-control">
+      <div class="text-danger" *ngIf="StreetNumber.touched && StreetNumber.invalid">Required</div>
+    </div>
+    <div class="col">
+      <label class="form-label">Zip:</label>
+      <input name="Zip" #Zip="ngModel" required [(ngModel)]="packageService.package.Zip"
+             placeholder="Zip" class="form-control">
+      <div class="text-danger" *ngIf="Zip.touched && Zip.invalid">Required</div>
+    </div>
+    <div class="col">
+      <label class="form-label">City:</label>
+      <input name="City" #City="ngModel" required [(ngModel)]="packageService.package.City"
+             placeholder="City" class="form-control">
+      <div class="text-danger" *ngIf="City.touched && City.invalid">Required</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8 pb-2">
+      <button class="btn btn-primary w-100" type="submit" [disabled]="!form.valid">
+        <i class="fa fa-save"> Submit</i>
+      </button>
+    </div>
+    <div class="col-md-4">
+      <button class="btn btn-secondary w-100" (click)="resetPackageForm(form)" type="button">
+        <i class="fa fa-repeat"> Reset</i>
+      </button>
+    </div>
+  </div>
+</form>
