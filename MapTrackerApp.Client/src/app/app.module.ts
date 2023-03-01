@@ -11,13 +11,16 @@ import { AppComponent } from './app.component';
 import { PackagesComponent } from './packages/packages.component';
 import { PackagesListComponent } from './packages/packages-list/packages-list.component';
 import { PackageComponent } from './packages/package/package.component';
+import { NgxMapLibreGLModule } from '@maplibre/ngx-maplibre-gl';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PackagesComponent,
     PackagesListComponent,
-    PackageComponent
+    PackageComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +33,7 @@ import { PackageComponent } from './packages/package/package.component';
       progressBar: true,
       timeOut: 1000
     }),
+    NgxMapLibreGLModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
