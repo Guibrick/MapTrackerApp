@@ -101,11 +101,12 @@ namespace MapTrackerApp.Controllers
             var extractedLatitude = point.Latitude;
             var extractedLongitude = point.Longitude;*/
 
-
+            Random random = new Random();
+            int uniqueId = random.Next();
 
             _context.Packages.Add(new Package()
             {
-                DeliveryId = package.DeliveryId,
+                DeliveryId = uniqueId,
                 Product = package.Product,
                 ProductType = package.ProductType,
                 Size = package.Size,
