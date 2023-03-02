@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "XYP6x7FzfD1ou5QrrMmfkeVQldi/rqzDLynhgZsliOILCz3NgA8xGvQGOe/bsNHSUfhGE9qpTJHGHpEn7eNrpA==",
+  "dgSpecHash": "vU6lHsbjicz0144a88hf+RyNR9crx5+ncFosVYKrflHnr3ENbpFExlMV/kI4uUqQ/m5RhR3Qz0nCRPF6sGVkKA==",
   "success": true,
   "projectFilePath": "C:\\Users\\guibe\\salt_projects\\MapTrackerApp\\MapTrackerApp\\MapTrackerApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\guibe\\.nuget\\packages\\bricelam.entityframeworkcore.pluralizer\\1.0.0\\bricelam.entityframeworkcore.pluralizer.1.0.0.nupkg.sha512",
+    "C:\\Users\\guibe\\.nuget\\packages\\googlemaps.locationservices\\1.2.0.5\\googlemaps.locationservices.1.2.0.5.nupkg.sha512",
     "C:\\Users\\guibe\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\guibe\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\guibe\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",
@@ -185,7 +186,11 @@
     "C:\\Users\\guibe\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\guibe\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
     "C:\\Users\\guibe\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
-    "C:\\Users\\guibe\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
+    "C:\\Users\\guibe\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\guibe\\.nuget\\packages\\xplat.core\\1.8.1\\xplat.core.1.8.1.nupkg.sha512",
+    "C:\\Users\\guibe\\.nuget\\packages\\xplat.device.geolocation\\1.8.1\\xplat.device.geolocation.1.8.1.nupkg.sha512",
+    "C:\\Users\\guibe\\.nuget\\packages\\xplat.foundation\\1.8.1\\xplat.foundation.1.8.1.nupkg.sha512",
+    "C:\\Users\\guibe\\.nuget\\packages\\xplat.services.maps\\1.8.1\\xplat.services.maps.1.8.1.nupkg.sha512"
   ],
   "logs": []
 }

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+//using GoogleMaps.LocationServices;
 using MapTrackerApp.Data;
 using MapTrackerApp.Models;
 
@@ -78,7 +79,47 @@ namespace MapTrackerApp.Controllers
         [HttpPost]
         public async Task<ActionResult<Package>> PostPackage(Package package)
         {
-            _context.Packages.Add(package);
+
+            /*        _context.Add(new Destination()
+        {
+            Id = Guid.NewGuid().ToString(),
+            City = destination.City,
+            Country = destination.Country,
+            Latitud = destination.Latitud,
+            Longitud = destination.Longitud,
+            Date = destination.Date,
+            Image = destination.Converter(destination.Image),
+        });
+        _context.SaveChanges();*/
+
+            /*   var address = "75 Ninth Avenue 2nd and 4th Floors New York, NY 10011";
+
+
+     /*/
+            /*var locationService = new GoogleLocationService();
+            var point = locationService.GetLatLongFromAddress(package.StreetName);
+            var extractedLatitude = point.Latitude;
+            var extractedLongitude = point.Longitude;*/
+
+
+
+            _context.Packages.Add(new Package()
+            {
+                DeliveryId = package.DeliveryId,
+                Product = package.Product,
+                ProductType = package.ProductType,
+                Size = package.Size,
+                LastName = package.LastName,
+                FirstName = package.FirstName,
+                StreetName = package.StreetName,
+                StreetNumber = package.StreetNumber,
+                Zip = package.Zip,
+                City = package.City,
+                //Latitude = extractedLatitude,
+                //Longitude = extractedLongitude,
+                Latitude = package.Latitude,
+                Longitude = package.Longitude,
+            });
             try
             {
                 await _context.SaveChangesAsync();

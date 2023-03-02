@@ -56,6 +56,18 @@
       <div class="text-danger" *ngIf="City.touched && City.invalid">Required</div>
     </div>
   </div>
+  <div class="col">
+    <label class="form-label">Latitude:</label>
+    <input name="Latitude" #Latitude="ngModel" required [(ngModel)]="packageService.package.Latitude"
+           placeholder="Latitude" class="form-control">
+    <div class="text-danger" *ngIf="Latitude.touched && Latitude.invalid">Required</div>
+  </div>
+  <div class="col">
+    <label class="form-label">Longitude:</label>
+    <input name="Longitude" #Longitude="ngModel" required [(ngModel)]="packageService.package.Longitude"
+           placeholder="Longitude" class="form-control">
+    <div class="text-danger" *ngIf="Longitude.touched && Longitude.invalid">Required</div>
+  </div>
   <div class="row">
     <div class="col-md-8 pb-2">
       <button class="btn btn-primary w-100" type="submit" [disabled]="!form.valid">

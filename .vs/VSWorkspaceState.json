@@ -1,8 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\MapTrackerApp.Client\\src"
+    "\\MapTrackerApp.Client",
+    "\\MapTrackerApp.Client\\src",
+    "\\MapTrackerApp.Client\\src\\app",
+    "\\MapTrackerApp.Client\\src\\assets",
+    "\\MapTrackerApp\\Controllers"
   ],
-  "SelectedNode": "\\MapTrackerApp.Client",
+  "SelectedNode": "\\MapTrackerApp.Client\\src\\app\\app.module.ts",
   "PreviewInSolutionExplorer": false
 }

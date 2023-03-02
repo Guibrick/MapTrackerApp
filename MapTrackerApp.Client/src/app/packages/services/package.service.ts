@@ -42,7 +42,9 @@ export class PackageService {
       StreetName: '',
       StreetNumber: null,
       Zip: '',
-      City: ''
+      City: '',
+      Latitude: null,
+      Longitude: null,
     }
   }
 }

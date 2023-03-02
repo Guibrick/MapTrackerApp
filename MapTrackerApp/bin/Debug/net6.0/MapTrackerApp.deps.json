@@ -9,11 +9,13 @@
       "MapTrackerApp/1.0.0": {
         "dependencies": {
           "Bricelam.EntityFrameworkCore.Pluralizer": "1.0.0",
+          "GoogleMaps.LocationServices": "1.2.0.5",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "6.0.14",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.14",
           "Microsoft.EntityFrameworkCore.Tools": "6.0.14",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.12",
-          "Swashbuckle.AspNetCore": "6.2.3"
+          "Swashbuckle.AspNetCore": "6.2.3",
+          "XPlat.Services.Maps": "1.8.1"
         },
         "runtime": {
           "MapTrackerApp.dll": {}
@@ -27,6 +29,14 @@
           "lib/netstandard2.0/Bricelam.EntityFrameworkCore.Pluralizer.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "GoogleMaps.LocationServices/1.2.0.5": {
+        "runtime": {
+          "lib/netstandard2.0/GoogleMaps.LocationServices.dll": {
+            "assemblyVersion": "1.2.0.5",
+            "fileVersion": "1.2.0.5"
           }
         }
       },
@@ -2345,6 +2355,45 @@
           "System.Threading": "4.3.0",
           "System.Xml.ReaderWriter": "4.3.0"
         }
+      },
+      "XPlat.Core/1.8.1": {
+        "runtime": {
+          "lib/netstandard2.0/XPlat.Core.dll": {
+            "assemblyVersion": "1.8.1.0",
+            "fileVersion": "1.8.1.0"
+          }
+        }
+      },
+      "XPlat.Device.Geolocation/1.8.1": {
+        "dependencies": {
+          "XPlat.Core": "1.8.1",
+          "XPlat.Foundation": "1.8.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/XPlat.Device.Geolocation.dll": {
+            "assemblyVersion": "1.8.1.0",
+            "fileVersion": "1.8.1.0"
+          }
+        }
+      },
+      "XPlat.Foundation/1.8.1": {
+        "runtime": {
+          "lib/netstandard2.0/XPlat.Foundation.dll": {
+            "assemblyVersion": "1.8.1.0",
+            "fileVersion": "1.8.1.0"
+          }
+        }
+      },
+      "XPlat.Services.Maps/1.8.1": {
+        "dependencies": {
+          "XPlat.Device.Geolocation": "1.8.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/XPlat.Services.Maps.dll": {
+            "assemblyVersion": "1.8.1.0",
+            "fileVersion": "1.8.1.0"
+          }
+        }
       }
     }
   },
@@ -2360,6 +2409,13 @@
       "sha512": "sha512-akiz3hGnpDgZssTGTnTehy7cy8gJ3RME7jULOkxWHuoSUUmkyxHO8USA/DDTz9Zc+o3RvTdY888NrjDcmb3OJA==",
       "path": "bricelam.entityframeworkcore.pluralizer/1.0.0",
       "hashPath": "bricelam.entityframeworkcore.pluralizer.1.0.0.nupkg.sha512"
+    },
+    "GoogleMaps.LocationServices/1.2.0.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0j3RL5+acxYgQNz72JdXJ1nUKxMGaY+6UvrOIOxZfp0qpJOUmo/ivCAm53atbnuy0z3vrZK+j9mZifh35UBqag==",
+      "path": "googlemaps.locationservices/1.2.0.5",
+      "hashPath": "googlemaps.locationservices.1.2.0.5.nupkg.sha512"
     },
     "Humanizer.Core/2.8.26": {
       "type": "package",
@@ -3627,6 +3683,34 @@
       "sha512": "sha512-5zJ0XDxAIg8iy+t4aMnQAu0MqVbqyvfoUVl1yDV61xdo3Vth45oA2FoY4pPkxYAH5f8ixpmTqXeEIya95x0aCQ==",
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
+    },
+    "XPlat.Core/1.8.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-iM5AO7niEyKRAVqPTh9CJxhu4IUbJw4P6WGc1O6bWwuXn2K8yyn+ms10IXIhCgKj4k5ZbHp171KeTbpOAmiM3A==",
+      "path": "xplat.core/1.8.1",
+      "hashPath": "xplat.core.1.8.1.nupkg.sha512"
+    },
+    "XPlat.Device.Geolocation/1.8.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UPFZFK7fVkh7i7/Ps8f8BiZAH5y08caHjNk9GCm5KmUjmwlNf2FyL5MN8UseHU4t61sQLFbHTRLho1DFSeO28Q==",
+      "path": "xplat.device.geolocation/1.8.1",
+      "hashPath": "xplat.device.geolocation.1.8.1.nupkg.sha512"
+    },
+    "XPlat.Foundation/1.8.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZWPDiocNhTaZSeMBHZiOQH8zRDGPzP9wmZsTpezADIOb/SzC22EyEdWU0Zp+9QDLtsS4FOOulFOp5Hd+bgpVeQ==",
+      "path": "xplat.foundation/1.8.1",
+      "hashPath": "xplat.foundation.1.8.1.nupkg.sha512"
+    },
+    "XPlat.Services.Maps/1.8.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-S+qAkSiX7Ws+Lm2nFiqSl6aJ+Wn2jn4zmvJ/iugO3JrCJt0rX/h0jRJPO0i2FM4F1xdMsKB1LicDDGoZfvD9kg==",
+      "path": "xplat.services.maps/1.8.1",
+      "hashPath": "xplat.services.maps.1.8.1.nupkg.sha512"
     }
   }
 }

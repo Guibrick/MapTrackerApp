@@ -268,3 +268,10 @@ C:\Users\guibe\salt_projects\MapTrackerApp\MapTrackerApp\obj\Debug\net6.0\refint
 C:\Users\guibe\salt_projects\MapTrackerApp\MapTrackerApp\obj\Debug\net6.0\MapTrackerApp.pdb
 C:\Users\guibe\salt_projects\MapTrackerApp\MapTrackerApp\obj\Debug\net6.0\MapTrackerApp.genruntimeconfig.cache
 C:\Users\guibe\salt_projects\MapTrackerApp\MapTrackerApp\obj\Debug\net6.0\ref\MapTrackerApp.dll
+C:\Users\guibe\salt_projects\MapTrackerApp\MapTrackerApp\bin\Debug\net6.0\GoogleMaps.LocationServices.dll
+C:\Users\guibe\salt_projects\MapTrackerApp\MapTrackerApp\bin\Debug\net6.0\XPlat.Core.dll
+C:\Users\guibe\salt_projects\MapTrackerApp\MapTrackerApp\bin\Debug\net6.0\XPlat.Device.Geolocation.dll
+C:\Users\guibe\salt_projects\MapTrackerApp\MapTrackerApp\bin\Debug\net6.0\XPlat.Foundation.dll
+C:\Users\guibe\salt_projects\MapTrackerApp\MapTrackerApp\bin\Debug\net6.0\XPlat.Services.Maps.dll
+C:\Users\guibe\salt_projects\MapTrackerApp\MapTrackerApp\bin\Debug\net6.0\package-lock.json
+C:\Users\guibe\salt_projects\MapTrackerApp\MapTrackerApp\bin\Debug\net6.0\package.json

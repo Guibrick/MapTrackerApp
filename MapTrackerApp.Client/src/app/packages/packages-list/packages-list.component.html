@@ -11,6 +11,8 @@
       <th>Street Number</th>
       <th>ZIP</th>
       <th>City</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
     </tr>
   </thead>
   <tbody>
@@ -25,6 +27,8 @@
       <td (click)="loadPackage(package)">{{package.StreetNumber }}</td>
       <td (click)="loadPackage(package)">{{package.Zip}}</td>
       <td (click)="loadPackage(package)">{{package.City }}</td>
+      <td (click)="loadPackage(package)">{{package.Latitude }}</td>
+      <td (click)="loadPackage(package)">{{package.Longitude }}</td>
       <td (click)="deletePackage(package.DeliveryId)"><i class="fa fa-trash text-danger"></i> </td>
     </tr>
   </tbody>

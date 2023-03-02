@@ -9,4 +9,6 @@ export class Package {
   StreetNumber: number;
   Zip: string;
   City: string;
+  Latitude: number;
+  Longitude: number;
 }
