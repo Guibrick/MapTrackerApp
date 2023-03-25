@@ -12,9 +12,8 @@ import { PackagesComponent } from './packages/packages.component';
 import { PackagesListComponent } from './packages/packages-list/packages-list.component';
 import { PackageComponent } from './packages/package/package.component';
 import { NgxMapLibreGLModule } from '@maplibre/ngx-maplibre-gl';
-import { MapComponent } from './map/map.component';
 import { GoogleMapsModule } from '@angular/google-maps';
-import { TestmapComponent } from './testmap/testmap.component'
+import { TestMapComponent } from './testmap/testmap.component'
 
 @NgModule({
   declarations: [
@@ -22,8 +21,7 @@ import { TestmapComponent } from './testmap/testmap.component'
     PackagesComponent,
     PackagesListComponent,
     PackageComponent,
-    MapComponent,
-    TestmapComponent,
+    TestMapComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,28 +1,37 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/app/environments/environment';
-import { GeocoderResponse } from '../models/geocoder-response.model';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
-export class GeocodingService {
-  constructor(private http: HttpClient) {}
+export class GoogleMapsService {
+  constructor() {}
 
-  geocodeLatLng(location: google.maps.LatLngLiteral): Promise<GeocoderResponse> {
-    let geocoder = new google.maps.Geocoder();
+  loadGoogleMaps(): Promise<any> {
+    const win = window as any;
+    const gModule = win.google;
+    if (gModule && gModule.maps) {
+      return Promise.resolve(gModule.maps);
+    }
 
     return new Promise((resolve, reject) => {
-      geocoder.geocode({ 'location': location }, (results, status) => {
-        const response = new GeocoderResponse(status, results);
-        resolve(response);
-      });
-    });
-  }
+      const script = document.createElement('script');
+      script.src =
+        'https://maps.googleapis.com/maps/api/js?key=' +
+        environment.MY_KEY +
+        '&libraries=places';
+      script.async = true;
+      script.defer = true;
+      document.body.appendChild(script);
 
-  getLocation(term: string): Observable<GeocoderResponse> {
-    const url = `https://maps.google.com/maps/api/geocode/json?address=${term}&sensor=false&key=${environment.MY_KEY}`;
-    return this.http.get<GeocoderResponse>(url);
+      script.onload = () => {
+        const loadedGoogleModule = win.google;
+        if (loadedGoogleModule && loadedGoogleModule.maps) {
+          resolve(loadedGoogleModule.maps);
+        } else {
+          reject('Google Map SDK is not Available');
+        }
+      };
+    });
   }
 }
