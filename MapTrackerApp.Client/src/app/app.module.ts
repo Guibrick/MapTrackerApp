@@ -13,7 +13,7 @@ import { PackagesListComponent } from './packages/packages-list/packages-list.co
 import { PackageComponent } from './packages/package/package.component';
 import { NgxMapLibreGLModule } from '@maplibre/ngx-maplibre-gl';
 import { GoogleMapsModule } from '@angular/google-maps';
-import { TestMapComponent } from './testmap/testmap.component'
+import { MapComponent } from './map/map.component'
 
 @NgModule({
   declarations: [
@@ -21,7 +21,7 @@ import { TestMapComponent } from './testmap/testmap.component'
     PackagesComponent,
     PackagesListComponent,
     PackageComponent,
-    TestMapComponent,
+    MapComponent,
   ],
   imports: [
     BrowserModule,

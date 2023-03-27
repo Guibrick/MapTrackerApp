@@ -1,3 +1,0 @@
-<google-map class="map" #map>
-  <map-marker *ngFor='let x of packages | async' [position]="{ lat: x.Latitude, lng: x.Longitude }"></map-marker>
-</google-map>
