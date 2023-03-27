@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { Package } from '../models/package';
 import { PackageService } from '../services/package.service';
 
 @Component({
@@ -10,9 +11,13 @@ import { PackageService } from '../services/package.service';
 })
 export class PackageComponent implements OnInit {
 
+  packages: Package[] = [];
+
   constructor(public packageService: PackageService, private toastrService: ToastrService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.packageService.getPackages();
+   }
 
   resetPackageForm(form?: NgForm) {
     if (form != null)

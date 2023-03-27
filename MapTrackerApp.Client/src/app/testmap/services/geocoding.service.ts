@@ -18,7 +18,7 @@ export class GoogleMapsService {
       const script = document.createElement('script');
       script.src =
         'https://maps.googleapis.com/maps/api/js?key=' +
-        environment.MY_KEY +
+        environment.GOOGLE_MAP_KEY +
         '&libraries=places';
       script.async = true;
       script.defer = true;

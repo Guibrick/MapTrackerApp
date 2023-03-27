@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Output, EventEmitter } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Package } from '../models/package';
@@ -10,6 +10,8 @@ import { PackageService } from '../services/package.service';
   styleUrls: ['./packages-list.component.css']
 })
 export class PackagesListComponent implements OnInit {
+
+  packages: Package[] = [];
 
   constructor(public packageService: PackageService, private toastrService: ToastrService) { }
 

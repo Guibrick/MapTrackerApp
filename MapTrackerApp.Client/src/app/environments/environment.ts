@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  MY_KEY: 'ZYcGvbbAyRKR7JtAoPbm'
+  GOOGLE_MAP_KEY: '${process.env.GOOGLE_MAP_KEY}'
   };

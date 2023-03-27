@@ -9,6 +9,9 @@ import {
   Renderer2,
   ViewChild,
 } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Package } from '../packages/models/package';
+import { PackageService } from '../packages/services/package.service';
 import { GoogleMapsService } from './services/geocoding.service';
 
 @Component({
@@ -21,17 +24,18 @@ export class TestMapComponent implements OnInit, AfterViewInit {
   googleMaps: any;
   map: any;
   center = { lat: 59.3293, lng: 18.0686 };
-  car = [
-    { lat: 56, lng: 23 },
-    { lat: 55, lng: 22 },
-    { lat: 54, lng: 21 },
-    { lat: 53, lng: 20 },
-  ];
-  marker: any;
+  packages: Observable<Package[]>;
 
-  constructor(private maps: GoogleMapsService, private renderer: Renderer2) {}
+  constructor(
+    private maps: GoogleMapsService,
+    private renderer: Renderer2,
+    public packageService: PackageService,
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit() {
+    this.packages = this.packageService.loadPackages();
+  }
+
   ngAfterViewInit() {
     this.loadMap();
   }
@@ -63,18 +67,5 @@ export class TestMapComponent implements OnInit, AfterViewInit {
     } catch (e) {
       console.log(e);
     }
-    this.addMarker(this.car);
-  }
-
-  addMarker(location: any) {
-    let googleMaps: any = this.googleMaps;
-    this.car.map(
-      (x) =>
-        new googleMaps.Marker({
-          position: x,
-          map: this.map,
-          draggable: true,
-        })
-    );
   }
 }
