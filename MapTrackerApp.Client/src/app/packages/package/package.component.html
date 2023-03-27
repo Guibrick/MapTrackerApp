@@ -154,36 +154,6 @@
     </div>
   </div>
 
-  <div class="row m-2">
-    <div class="col-sm-6">
-      <label class="form-label">Latitude</label>
-      <input
-        name="Latitude"
-        #Latitude="ngModel"
-        required
-        [(ngModel)]="packageService.package.Latitude"
-        class="form-control"
-      />
-      <div class="text-danger" *ngIf="Latitude.touched && Latitude.invalid">
-        Required
-      </div>
-    </div>
-
-    <div class="col-sm-6">
-      <label class="form-label">Longitude</label>
-      <input
-        name="Longitude"
-        #Longitude="ngModel"
-        required
-        [(ngModel)]="packageService.package.Longitude"
-        class="form-control"
-      />
-      <div class="text-danger" *ngIf="Longitude.touched && Longitude.invalid">
-        Required
-      </div>
-    </div>
-  </div>
-
   <hr />
 
   <div class="row m-2 w-100 d-flex justify-content-center">

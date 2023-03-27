@@ -49,8 +49,6 @@ export class PackageService {
       StreetNumber: null,
       Zip: '',
       City: '',
-      Latitude: null,
-      Longitude: null,
     };
   }
 }
