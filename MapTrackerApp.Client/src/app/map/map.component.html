@@ -1,6 +1,3 @@
 <google-map height="500px" width="900px" [center]="center" [zoom]="zoom">
-  <map-marker
-    *ngFor="let x of packages | async"
-    [position]="{ lat: x.Latitude, lng: x.Longitude }"
-  ></map-marker>
+  <map-marker *ngFor="let x of coordinates" [position]="x"></map-marker>
 </google-map>

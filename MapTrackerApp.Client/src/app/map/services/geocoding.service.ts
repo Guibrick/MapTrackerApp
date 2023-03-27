@@ -1,37 +1,18 @@
 import { Injectable } from '@angular/core';
-import { environment } from 'src/app/environments/environment';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { GeocoderResponse } from '../models/geocoder-response.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
-export class GoogleMapsService {
-  constructor() {}
+export class GeocodingService {
+  constructor(private http: HttpClient) {}
 
-  loadGoogleMaps(): Promise<any> {
-    const win = window as any;
-    const gModule = win.google;
-    if (gModule && gModule.maps) {
-      return Promise.resolve(gModule.maps);
-    }
 
-    return new Promise((resolve, reject) => {
-      const script = document.createElement('script');
-      script.src =
-        'https://maps.googleapis.com/maps/api/js?key=' +
-        environment.GOOGLE_MAP_KEY +
-        '&libraries=places';
-      script.async = true;
-      script.defer = true;
-      document.body.appendChild(script);
-
-      script.onload = () => {
-        const loadedGoogleModule = win.google;
-        if (loadedGoogleModule && loadedGoogleModule.maps) {
-          resolve(loadedGoogleModule.maps);
-        } else {
-          reject('Google Map SDK is not Available');
-        }
-      };
-    });
+  getLocation(term: string): Observable<GeocoderResponse> {
+    const url = `https://maps.google.com/maps/api/geocode/json?address=${term}&sensor=false&key=AIzaSyBrlXdYayzEf4t8M4Cf7ftE5z3jGQDGJyI`;
+    return this.http.get<GeocoderResponse>(url);
   }
 }
