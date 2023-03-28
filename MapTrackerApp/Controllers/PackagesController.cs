@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-//using GoogleMaps.LocationServices;
 using MapTrackerApp.Data;
 using MapTrackerApp.Models;
 
@@ -22,14 +21,12 @@ namespace MapTrackerApp.Controllers
             _context = context;
         }
 
-        // GET: api/Packages
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Package>>> GetPackages()
         {
             return await _context.Packages.ToListAsync();
         }
 
-        // GET: api/Packages/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Package>> GetPackage(int id)
         {
@@ -39,12 +36,9 @@ namespace MapTrackerApp.Controllers
             {
                 return NotFound();
             }
-
             return package;
         }
 
-        // PUT: api/Packages/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPackage(int id, Package package)
         {
@@ -52,7 +46,6 @@ namespace MapTrackerApp.Controllers
             {
                 return BadRequest();
             }
-
             _context.Entry(package).State = EntityState.Modified;
 
             try
@@ -70,37 +63,12 @@ namespace MapTrackerApp.Controllers
                     throw;
                 }
             }
-
             return NoContent();
         }
 
-        // POST: api/Packages
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Package>> PostPackage(Package package)
         {
-
-            /*        _context.Add(new Destination()
-        {
-            Id = Guid.NewGuid().ToString(),
-            City = destination.City,
-            Country = destination.Country,
-            Latitud = destination.Latitud,
-            Longitud = destination.Longitud,
-            Date = destination.Date,
-            Image = destination.Converter(destination.Image),
-        });
-        _context.SaveChanges();*/
-
-            /*   var address = "75 Ninth Avenue 2nd and 4th Floors New York, NY 10011";
-
-
-     /*/
-            /*var locationService = new GoogleLocationService();
-            var point = locationService.GetLatLongFromAddress(package.StreetName);
-            var extractedLatitude = point.Latitude;
-            var extractedLongitude = point.Longitude;*/
-
             Random random = new Random();
             int uniqueId = random.Next();
 
@@ -115,11 +83,7 @@ namespace MapTrackerApp.Controllers
                 StreetName = package.StreetName,
                 StreetNumber = package.StreetNumber,
                 Zip = package.Zip,
-                City = package.City,
-                //Latitude = extractedLatitude,
-                //Longitude = extractedLongitude,
-                Latitude = package.Latitude,
-                Longitude = package.Longitude,
+                City = package.City
             });
             try
             {
@@ -136,11 +100,9 @@ namespace MapTrackerApp.Controllers
                     throw;
                 }
             }
-
             return CreatedAtAction("GetPackage", new { id = package.DeliveryId }, package);
         }
 
-        // DELETE: api/Packages/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePackage(int id)
         {
@@ -149,7 +111,6 @@ namespace MapTrackerApp.Controllers
             {
                 return NotFound();
             }
-
             _context.Packages.Remove(package);
             await _context.SaveChangesAsync();
 

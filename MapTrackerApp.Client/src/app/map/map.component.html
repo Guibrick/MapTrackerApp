@@ -1,3 +1,4 @@
-<google-map height="500px" width="900px" [center]="center" [zoom]="zoom">
-  <map-marker *ngFor="let x of coordinates" [position]="x"></map-marker>
+<google-map height="550px" width="1200px" [center]="center" [zoom]="zoom">
+  <map-marker #marker="mapMarker" *ngFor="let x of coordinates" [position]="x" (mapClick)="openInfoWindow(marker)"></map-marker>
+  <map-info-window *ngFor="let x of fullBullshit">{{x}}</map-info-window>
 </google-map>

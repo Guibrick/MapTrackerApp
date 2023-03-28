@@ -4,9 +4,10 @@
     "\\MapTrackerApp.Client",
     "\\MapTrackerApp.Client\\src",
     "\\MapTrackerApp.Client\\src\\app",
-    "\\MapTrackerApp.Client\\src\\assets",
-    "\\MapTrackerApp\\Controllers"
+    "\\MapTrackerApp.Client\\src\\app\\environments",
+    "\\MapTrackerApp.Client\\src\\app\\map\\services",
+    "\\MapTrackerApp.Client\\src\\assets"
   ],
-  "SelectedNode": "\\MapTrackerApp.Client\\src\\app\\app.module.ts",
+  "SelectedNode": "\\MapTrackerApp.Client\\src\\app\\environments",
   "PreviewInSolutionExplorer": false
 }
