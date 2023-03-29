@@ -71,8 +71,6 @@ export class MapComponent implements OnInit {
             }
           });
       });
-      this.source = { lat: 59.22045, lng: 17.50398 };
-      this.destination = { lat: 59.3923388, lng: 17.9015298 };
     });
   }
 
@@ -97,6 +95,9 @@ export class MapComponent implements OnInit {
   }
 
   setRoutePolyline() {
+    this.source = { lat: 59.21045, lng: 17.50398 };
+    this.destination = { lat: 59.3923388, lng: 17.9015298 };
+
     const request: google.maps.DirectionsRequest = {
       origin: this.source,
       destination: this.destination,
