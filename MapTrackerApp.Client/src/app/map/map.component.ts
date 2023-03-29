@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MapInfoWindow, MapMarker } from '@angular/google-maps';
-import { Observable } from 'rxjs';
+import { MapDirectionsService, MapInfoWindow, MapMarker } from '@angular/google-maps';
+import { map, Observable } from 'rxjs';
 import { Package } from '../packages/models/package';
 import { PackageService } from '../packages/services/package.service';
 import { GeocoderResponse } from './models/geocoder-response.model';
@@ -13,6 +13,7 @@ import { GeocodingService } from './services/geocoding.service';
 })
 export class MapComponent implements OnInit {
   packages: Observable<Package[]>;
+
   center: google.maps.LatLngLiteral = { lat: 59.3293, lng: 18.0686 };
   zoom = 12;
   address: string;
@@ -20,17 +21,28 @@ export class MapComponent implements OnInit {
   fullAddresses: string[] = [];
   coordinates: google.maps.LatLng[] = [];
   infoMarker: any = [];
-  fullBullshit: string[] = [];
+  description: string[] = [];
+
+  source: google.maps.LatLngLiteral;
+  destination: google.maps.LatLngLiteral;
+  directionService: google.maps.DirectionsService;
+  directionRender: google.maps.DirectionsRenderer;
+
+  directionsResults: Observable<google.maps.DirectionsResult | undefined>;
+
   @ViewChild(MapInfoWindow) infoWindow: MapInfoWindow;
 
   constructor(
     public packageService: PackageService,
-    private geocodingService: GeocodingService
-  ) {}
+    private geocodingService: GeocodingService,
+    private mapDirectionsService: MapDirectionsService
+  ) { }
 
   ngOnInit() {
     this.packages = this.packageService.loadPackages();
     this.findAddresses();
+    this.directionService = new google.maps.DirectionsService();
+    this.directionRender = new google.maps.DirectionsRenderer({ map: null, suppressMarkers: true })
   }
 
   findAddresses() {
@@ -59,8 +71,11 @@ export class MapComponent implements OnInit {
             }
           });
       });
+      this.source = { lat: 59.22045, lng: 17.50398 };
+      this.destination = { lat: 59.3923388, lng: 17.9015298 };
     });
   }
+
   openInfoWindow(marker: MapMarker) {
     this.infoWindow.open(marker);
   }
@@ -68,7 +83,7 @@ export class MapComponent implements OnInit {
   showInfo() {
     this.packages.subscribe((data) => {
       for (let item of data) {
-        var fullshit =
+        var information =
           item.FirstName +
           ' ' +
           item.LastName +
@@ -76,8 +91,17 @@ export class MapComponent implements OnInit {
           item.Product +
           ', ' +
           item.City;
-        this.fullBullshit.push(fullshit);
+        this.description.push(information);
       }
     });
   }
-}
+
+  setRoutePolyline() {
+    const request: google.maps.DirectionsRequest = {
+      origin: this.source,
+      destination: this.destination,
+      travelMode: google.maps.TravelMode.DRIVING
+    };
+    this.directionsResults = this.mapDirectionsService.route(request).pipe(map(response => response.result));
+  }
+};

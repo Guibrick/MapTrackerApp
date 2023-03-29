@@ -1,4 +1,10 @@
 <google-map height="550px" width="1200px" [center]="center" [zoom]="zoom">
   <map-marker #marker="mapMarker" *ngFor="let x of coordinates" [position]="x" (mapClick)="openInfoWindow(marker)"></map-marker>
-  <map-info-window *ngFor="let x of fullBullshit">{{x}}</map-info-window>
+  <map-info-window *ngFor="let x of description">{{x}}</map-info-window>
+  <button (click)="setRoutePolyline()">
+    Show Route
+    <map-directions-renderer *ngIf="(directionsResults | async) as directionsResults" [directions]="directionsResults"></map-directions-renderer>
+  </button>
 </google-map>
+
+
