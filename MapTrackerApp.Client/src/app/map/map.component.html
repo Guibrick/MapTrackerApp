@@ -1,5 +1,5 @@
 <google-map height="500px" width="1200px" [center]="center" [zoom]="zoom">
-  <map-marker #marker="mapMarker" *ngFor="let x of coordinates" [position]="x" (mapClick)="openInfoWindow(marker)"></map-marker>
+  <map-marker #marker="mapMarker" *ngFor="let x of coordinates" [position]="x" [options]="markerOptions" (mapClick)="openInfoWindow(marker)"></map-marker>
   <map-info-window *ngFor="let x of description">{{x}}</map-info-window>
   <button type="button" class="btn btn-info mt-2" (click)="setRoutePolyline()">
     Show Route
