@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MapDirectionsService, MapInfoWindow, MapMarker } from '@angular/google-maps';
-import { map, Observable } from 'rxjs';
+import { findIndex, map, Observable } from 'rxjs';
 import { Package } from '../packages/models/package';
 import { PackageService } from '../packages/services/package.service';
 import { GeocoderResponse } from './models/geocoder-response.model';
@@ -23,8 +23,11 @@ export class MapComponent implements OnInit {
   fullAddresses: string[] = [];
 
   infoMarker: any = [];
+  infoContent: string;
   description: string[] = [];
   markerOptions: google.maps.MarkerOptions = { label: "1" };
+
+  packagesRouteList: Package[] = [];
 
   origin: google.maps.LatLngLiteral;
   destination: google.maps.LatLngLiteral;
@@ -47,6 +50,8 @@ export class MapComponent implements OnInit {
     this.findAddresses();
     this.directionService = new google.maps.DirectionsService();
     this.directionRender = new google.maps.DirectionsRenderer();
+    this.getRouteList();
+    console.log(this.packagesRouteList);
   }
 
   findAddresses() {
@@ -78,24 +83,28 @@ export class MapComponent implements OnInit {
     });
   }
 
-  openInfoWindow(marker: MapMarker) {
-    this.infoWindow.open(marker);
-  }
+  openInfoWindow(marker: MapMarker, content: google.maps.LatLng) {
 
-  showInfo() {
+    let cuca: string[];
+    this.infoContent = cuca[0];
+
     this.packages.subscribe((data) => {
       for (let item of data) {
-        var information =
-          item.FirstName +
-          ' ' +
-          item.LastName +
-          ', ' +
-          item.Product +
-          ', ' +
-          item.City;
-        this.description.push(information);
+        if (this.locationCoords === content) {
+          var information =
+            item.FirstName +
+            ' ' +
+            item.LastName +
+            ', ' +
+            item.Product +
+            ', ' +
+            item.City;
+          cuca.push(information);
+        }
       }
-    });
+      this.infoWindow.open(marker);
+    }
+    )
   }
 
   setRoutePolyline() {
@@ -115,4 +124,18 @@ export class MapComponent implements OnInit {
     };
     this.directionsResults = this.mapDirectionsService.route(request).pipe(map(response => response.result));
   }
-};
+
+  getRouteList() {
+    this.packages.subscribe((data) => {
+      for (let item of data) {
+        this.packagesRouteList.push(item);
+      }
+    })
+  };
+
+  onClick(arrayIndex: number): void {
+    this.packagesRouteList = this.packagesRouteList.filter((item, index) => index !== arrayIndex);
+  }
+}
+
+

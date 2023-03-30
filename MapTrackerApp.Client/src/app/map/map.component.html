@@ -1,10 +1,55 @@
-<google-map height="500px" width="1200px" [center]="center" [zoom]="zoom">
-  <map-marker #marker="mapMarker" *ngFor="let x of coordinates" [position]="x" [options]="markerOptions" (mapClick)="openInfoWindow(marker)"></map-marker>
-  <map-info-window *ngFor="let x of description">{{x}}</map-info-window>
-  <button type="button" class="btn btn-info mt-2" (click)="setRoutePolyline()">
-    Show Route
-    <map-directions-renderer *ngIf="(directionsResults | async) as directionsResults" [directions]="directionsResults"></map-directions-renderer>
-  </button>
-</google-map>
+<div style="width: 1300px" class="d-flex flex-row">
+  <div style="width: 800px">
+    <google-map class="w-100 h-100" [center]="center" [zoom]="zoom">
+      <map-marker #marker="mapMarker" *ngFor="let x of coordinates" [position]="x" [options]="markerOptions" (mapClick)="openInfoWindow(marker, x)"></map-marker>
+      <map-info-window>{{infoContent}}</map-info-window>
+      <button type="button" class="btn btn-info mt-2" (click)="setRoutePolyline()">
+        Show Route
+        <map-directions-renderer *ngIf="(directionsResults | async) as directionsResults" [directions]="directionsResults"></map-directions-renderer>
+      </button>
+    </google-map>
+  </div>
 
+  <div style="width: 500px">
+    <div style="height: 500px;" class="card col-md-12 col-xl-4 bg-dark p-3 overflow-auto">
+      <div class="card mask-custom w-90 h-90 p-3">
+        <div class="card-body p-4 text-white">
+          <div class="text-center pt-3 pb-2">
+            <h2 class="my-4">Packages to Deliver</h2>
+          </div>
+          <table class="table text-white mb-0">
+            <thead>
+              <tr>
+                <th scope="col">Item</th>
+                <th scope="col">Delivered</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let x of packagesRouteList; let i = index">
+              <tr class="fw-normal">
+                <td class="ms-2">
+                  <span class="ms-2">
+                    <span class="font-weight-bold">
+                      {{x.LastName}},  {{x.FirstName}}
+                    </span>
+                    <br />
+                    <span>
+                      {{x.StreetName}} {{x.StreetNumber}}
+                    </span>
+                    <br />
+                    <span class="font-italic">
+                      {{x.Product}}
+                    </span>
+                  </span>
+                </td>
+                <td class="text-center align-middle col-xl-1">
+                  <i class="bi bi-check2-circle" (click)="onClick(i)"></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 

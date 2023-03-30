@@ -1,25 +1,17 @@
-<div class="dashboard d-flex">
+<div class="d-flex">
   <div>
     <app-sidebar bgColor="#333" color="#fff"></app-sidebar>
   </div>
-  <div
-    style="
+  <div style="
       flex: 1 1 auto;
       display: flex;
       flex-flow: column;
       height: 100vh;
       overflow-y: hidden;
-    "
-  >
+    ">
     <app-navbar bg="#333" color="#fff"></app-navbar>
     <div style="height: 100%">
-      <div style="height: calc(100% - 64px); overflow-y: auto">
-        <div class="d-flex card-section">
-          <div class="cards-container">
-            <router-outlet></router-outlet>
-          </div>
-        </div>
-      </div>
+        <router-outlet></router-outlet>
     </div>
   </div>
 </div>
