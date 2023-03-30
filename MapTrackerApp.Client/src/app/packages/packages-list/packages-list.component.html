@@ -1,6 +1,4 @@
-<table
-  class="table m-5 w-auto table-bordered table-striped table-hover table-condensed"
->
+<table class="table table-striped table-dark table-hover text-center align-items m-5  w-auto">
   <thead>
     <tr>
       <th>Delivery Id</th>
@@ -13,6 +11,7 @@
       <th>Street Number</th>
       <th>ZIP</th>
       <th>City</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -28,7 +27,7 @@
       <td (click)="loadPackage(package)">{{ package.Zip }}</td>
       <td (click)="loadPackage(package)">{{ package.City }}</td>
       <td (click)="deletePackage(package.DeliveryId)">
-        <i class="fa fa-trash text-danger"></i>
+        <i class="bi bi-trash3"></i>
       </td>
     </tr>
   </tbody>
