@@ -1,6 +1,6 @@
 <div style="width: 1200px" class="d-flex flex-row">
   <div style="width: 800px">
-    <google-map width="800px" height="550px" [center]="center" [zoom]="zoom">
+    <google-map width="800px" height="550px" [options]="mapOptions" [center]="center">
       <map-marker #marker="mapMarker" *ngFor="let x of coordinates" [position]="x" [options]="markerOptions"></map-marker>
       <button type="button" class="btn btn-outline-light mt-1" (click)="setRoutePolyline()">
         Show Route
