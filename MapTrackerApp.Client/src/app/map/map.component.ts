@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MapDirectionsService, MapInfoWindow, MapMarker } from '@angular/google-maps';
-import { map, Observable } from 'rxjs';
+import { findIndex, map, Observable } from 'rxjs';
 import { Package } from '../packages/models/package';
 import { PackageService } from '../packages/services/package.service';
 import { GeocoderResponse } from './models/geocoder-response.model';
@@ -14,6 +14,7 @@ import { GeocodingService } from './services/geocoding.service';
 export class MapComponent implements OnInit {
 
   packages: Observable<Package[]>;
+  packagesRouteList: Package[] = [];
 
   address: string;
   locationCoords?: google.maps.LatLng | null = null;
@@ -301,9 +302,9 @@ export class MapComponent implements OnInit {
   markerOptions: google.maps.MarkerOptions = {
     icon: this.icon,
   };
-
-
-  packagesRouteList: Package[] = [];
+  directionsOptions: google.maps.DirectionsRendererOptions = {
+    suppressMarkers: true,
+  };
 
   origin: google.maps.LatLngLiteral;
   destination: google.maps.LatLngLiteral;
@@ -327,7 +328,6 @@ export class MapComponent implements OnInit {
     this.directionService = new google.maps.DirectionsService();
     this.directionRender = new google.maps.DirectionsRenderer();
     this.getRouteList();
-    console.log(this.packagesRouteList);
   }
 
   findAddresses() {
@@ -372,7 +372,8 @@ export class MapComponent implements OnInit {
       origin: this.origin,
       waypoints: this.waypointsArray,
       destination: this.destination,
-      travelMode: google.maps.TravelMode.DRIVING
+      travelMode: google.maps.TravelMode.DRIVING,
+      optimizeWaypoints: true,
     };
     this.directionsResults = this.mapDirectionsService.route(request).pipe(map(response => response.result));
   }
@@ -387,7 +388,9 @@ export class MapComponent implements OnInit {
 
   onClick(arrayIndex: number): void {
     this.packagesRouteList = this.packagesRouteList.filter((item, index) => index !== arrayIndex);
+    this.coordinates = this.coordinates.filter((item, index) => index !== arrayIndex);
+    console.log(this.packagesRouteList);
+    console.log(this.coordinates);
   }
 }
-
 
