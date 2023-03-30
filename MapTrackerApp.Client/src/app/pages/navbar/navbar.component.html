@@ -1,20 +1,11 @@
-<Header
-  [style.color]="color ? color : null"
-  [style.backgroundColor]="bg ? bg : null"
-  color="color"
->
-  <CDBNavbar
-    class="justify-content-between"
-    [dark]="true"
-    expand="md"
-    [scrolling]="true"
-  >
-    <CDBInput
-      type="search"
-      size="md"
-      hint="Search"
-      class="mb-n4 mt-n3 input-nav text-white"
-    ></CDBInput>
+<Header [style.color]="color ? color : null"
+        [style.backgroundColor]="bg ? bg : null"
+        color="color"
+        style="height: 73px">
+  <CDBNavbar class="justify-content-between"
+             [dark]="true"
+             expand="md"
+             [scrolling]="true">
     <div class="ml-auto d-flex align-items-center">
       <i class="fas fa-bell"></i>
       <i class="fas fa-comment-alt mx-4"></i>
