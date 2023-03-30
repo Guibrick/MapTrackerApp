@@ -1,8 +1,7 @@
-<div style="width: 1300px" class="d-flex flex-row">
+<div style="width: 1200px" class="m-4 d-flex flex-row">
   <div style="width: 800px">
-    <google-map class="w-100 h-100" [center]="center" [zoom]="zoom">
-      <map-marker #marker="mapMarker" *ngFor="let x of coordinates" [position]="x" [options]="markerOptions" (mapClick)="openInfoWindow(marker, x)"></map-marker>
-      <map-info-window>{{infoContent}}</map-info-window>
+    <google-map width="800px" height="600px" [center]="center" [zoom]="zoom">
+      <map-marker #marker="mapMarker" *ngFor="let x of coordinates" [position]="x" [options]="markerOptions"></map-marker>
       <button type="button" class="btn btn-info mt-2" (click)="setRoutePolyline()">
         Show Route
         <map-directions-renderer *ngIf="(directionsResults | async) as directionsResults" [directions]="directionsResults"></map-directions-renderer>
@@ -10,12 +9,12 @@
     </google-map>
   </div>
 
-  <div style="width: 500px">
-    <div style="height: 500px;" class="card col-md-12 col-xl-4 bg-dark p-3 overflow-auto">
+  <div style="width: 400px" class="align-middle">
+    <div style="height: 600px;" class="card col-md-12 col-xl-12 bg-dark p-3 overflow-auto">
       <div class="card mask-custom w-90 h-90 p-3">
         <div class="card-body p-4 text-white">
           <div class="text-center pt-3 pb-2">
-            <h2 class="my-4">Packages to Deliver</h2>
+            <h2 class="my-3">Packages to Deliver</h2>
           </div>
           <table class="table text-white mb-0">
             <thead>

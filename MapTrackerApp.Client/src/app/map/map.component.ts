@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MapDirectionsService, MapInfoWindow, MapMarker } from '@angular/google-maps';
-import { findIndex, map, Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Package } from '../packages/models/package';
 import { PackageService } from '../packages/services/package.service';
 import { GeocoderResponse } from './models/geocoder-response.model';
